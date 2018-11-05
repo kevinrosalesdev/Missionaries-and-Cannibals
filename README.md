@@ -19,6 +19,7 @@ Así pues, se han de realizar *X viajes* con una barca siempre llena para llevar
     -El algoritmo debe priorizar, entre todas las combinaciones posibles, que los misioneros sean los primeros en llegar a la otra orilla. (¡Viva la Burguesía!)
     -El algoritmo debe calcular TODAS Y CADA UNA de las condiciones disponibles según el número de Caníbales y Misioneros (de eso trata la estrategia de Fuerza Bruta)
     -El algoritmo debe recoger cuántos caníbales y cuántos misioneros existen a través de los ficheros de entrada 'personasN.txt' común a los tres lenguajes. [Mirar Nota]
+    -El algoritmo debe tener un contador que mida el tiempo que tarda en realizar todas las operaciones.
     -El algoritmo debe ser capaz de, después de averigüar todas las combinaciones, imprimir un mensaje de error si la combinación no es válida.
 [NOTA]    
 - Hay que hablar si el formato de dicho fichero será como el explicado en clase para iterar, es decir:

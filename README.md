@@ -66,3 +66,13 @@ Así pues, se han de realizar *X viajes* con una barca siempre llena para llevar
     8/11: Algoritmo completamente operativo en Python (Últimos retoques en clase).
     12/11: Algoritmo completamente operativo en RStudio (O C++ si la cosa se complica) y Java.
     15/11: Análisis de la estrategia y sus resultados en los tres lenguajes (Últimos retoques en clase).
+
+### Salida
+  -> OPCIÓN MONSTRAR TODO(sin nada)
+    -primero la orrilaA
+    -por cada combinación: la combinación satisfactoria
+                           el numero de canibales y misioneros en la orillaA
+    -orillaB
+    -Tiempo total
+  -> OPCIÓN MONSTAR SOLO TIEMPO(-t)
+    -Tiempo total

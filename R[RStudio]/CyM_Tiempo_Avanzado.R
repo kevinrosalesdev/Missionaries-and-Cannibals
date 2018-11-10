@@ -44,7 +44,7 @@ print("#########################################################################
 print("INICIO DE LOS TESTS")
 print("############################################################################")
 archivo=0
-orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+orillaA = read.table("fichero_avanzado.txt", skip=archivo, nrow=1)
 orillaA = as.numeric(orillaA)
 vectorTiempo <- c()
 while(orillaA[1] != -1){
@@ -89,7 +89,7 @@ while(orillaA[1] != -1){
     print(tiempo)
     vectorTiempo = append(vectorTiempo, as.vector(tiempo[1]))
   }
-  orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+  orillaA = read.table("fichero_avanzado.txt", skip=archivo, nrow=1)
   orillaA = as.numeric(orillaA)
 }
 i = 0

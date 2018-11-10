@@ -3,28 +3,32 @@ import sys
 import time
 from timeit import default_timer as timer
 import itertools
+
 """
 Misioneros 1
 Canibales  2
 """
 vectortiempo = []
 
+
 def numero_misioneros(lista):
     aux = 0
     for l in lista:
-        if l == 1:aux=aux+1
+        if l == 1: aux = aux + 1
     return aux
+
 
 def numero_canibales(lista):
     aux = 0
     for l in lista:
-        if l == 2:aux=aux+1
+        if l == 2: aux = aux + 1
     return aux
+
 
 def Misioneros_Canibales(fichero):
     iteraciones = 0;
     for linea in open(fichero, "r"):
-        iteraciones=iteraciones+1;
+        iteraciones = iteraciones + 1;
         print("################ " +
               str(iteraciones) +
               " iteracion ##############")
@@ -32,9 +36,17 @@ def Misioneros_Canibales(fichero):
         for palabra in linea.split():
             orillaA.append(int(palabra))
         orillaB = []
-        print("El número de misioneros: " + str (numero_misioneros(orillaA)))
+        if numero_canibales(orillaA) > numero_misioneros(orillaA):
+            print("El número de canibales no pude superar al e misioneros")
+            continue
+        if numero_misioneros(orillaA) == 10 and numero_canibales(orillaA) == 8:
+            print("Esa combinación no se puede dar")
+            continue
+        if len(orillaA) % 3 != 0:
+            print("NO ES MUTIPLO DE TRES")
+            continue
+        print("El número de misioneros: " + str(numero_misioneros(orillaA)))
         print("El número de canibales: " + str(numero_canibales(orillaA)))
-        if len(orillaA) % 3 != 0: print("NO ES MUTIPLO DE TRES");exit(1)
         while orillaA != []:
             print("ORILLA_A -->" + str(orillaA))
             print("ORILLA_B -->" + str(orillaB))
@@ -44,14 +56,16 @@ def Misioneros_Canibales(fichero):
                 # copia auxiliar
                 aux = orillaA.copy()
                 auxB = orillaB.copy()
-                #print("Combinaciones posibles:" + str(it))
+                # print("Combinaciones posibles:" + str(it))
                 # simulación de la siguente lista posible
-                for i in it: aux.remove(i)
-                for i in it: auxB.append(i)
+                for i in it:
+                    aux.remove(i)
+                    auxB.append(i)
                 # condiciones
-                if (numero_misioneros(it) > numero_canibales(it) or numero_misioneros(it) == 0) \
-                    and numero_misioneros(aux) != 1 and ( numero_canibales(aux) <= numero_misioneros(aux) or numero_misioneros(auxB) == 0 \
-                    and numero_canibales(auxB) <= numero_misioneros(auxB) or numero_misioneros(auxB)):
+                if ((numero_misioneros(it) > numero_canibales(it) or numero_misioneros(it) == 0)
+                        and numero_misioneros(aux) != 1
+                        and (numero_canibales(aux) <= numero_misioneros(aux) or numero_misioneros(aux) == 0)
+                        and (numero_canibales(auxB) <= numero_misioneros(auxB))):
                     print("Combinaciones ganadora:" + str(it))
                     # simulación del bote
                     for i in it:
@@ -65,7 +79,7 @@ def Misioneros_Canibales(fichero):
 def Misioneros_Canibales_tiempo(fichero):
     iteraciones = 0;
     for linea in open(fichero, "r"):
-        iteraciones=iteraciones+1;
+        iteraciones = iteraciones + 1;
         print("################ " +
               str(iteraciones) +
               " iteracion ##############")
@@ -73,7 +87,15 @@ def Misioneros_Canibales_tiempo(fichero):
         for palabra in linea.split():
             orillaA.append(int(palabra))
         orillaB = []
-        if len(orillaA) % 3 != 0: print("NO ES MUTIPLO DE TRES");exit(1)
+        if numero_canibales(orillaA) > numero_misioneros(orillaA):
+            print("El número de canibales no pude superar al e misioneros")
+            continue
+        if numero_misioneros(orillaA) == 10 and numero_canibales(orillaA) == 8:
+            print("Esa combinación no se puede dar")
+            continue
+        if len(orillaA) % 3 != 0:
+            print("NO ES MUTIPLO DE TRES")
+            continue
         start_time = time.perf_counter()
         while orillaA != []:
             for elemento in itertools.combinations(orillaA, 3):
@@ -83,12 +105,14 @@ def Misioneros_Canibales_tiempo(fichero):
                 aux = orillaA.copy()
                 auxB = orillaB.copy()
                 # simulación de la siguente lista posible
-                for i in it: aux.remove(i)
-                for i in it: auxB.append(i)
+                for i in it:
+                    aux.remove(i)
+                    auxB.append(i)
                 # condiciones
-                if (numero_misioneros(it) > numero_canibales(it) or numero_misioneros(it) == 0) \
-                    and numero_misioneros(aux) != 1 and ( numero_canibales(aux) <= numero_misioneros(aux) or numero_misioneros(auxB) == 0 \
-                    and numero_canibales(auxB) <= numero_misioneros(auxB) or numero_misioneros(auxB)):
+                if ((numero_misioneros(it) > numero_canibales(it) or numero_misioneros(it) == 0)
+                        and numero_misioneros(aux) != 1
+                        and (numero_canibales(aux) <= numero_misioneros(aux) or numero_misioneros(aux) == 0)
+                        and (numero_canibales(auxB) <= numero_misioneros(auxB))):
                     # simulación del bote
                     for i in it:
                         orillaA.remove(i)
@@ -100,7 +124,7 @@ def Misioneros_Canibales_tiempo(fichero):
     sum = 0
     for i in vectortiempo:
         sum += sum + i
-    print("Suma del tiempo total del algoritmo con las combinaciones entrantes: "  + str(sum))
+    print("Suma del tiempo total del algoritmo con las combinaciones entrantes: " + str(sum))
     vectortiempo.clear()
 
 
@@ -109,7 +133,7 @@ if __name__ == '__main__':
         if sys.argv[1] == "-t":
             for i in range(2, len(sys.argv)):
                 print("------------------------------------------------------- "
-                      + str(i-1) +
+                      + str(i - 1) +
                       "Fichero -------------------------------------------------------------------------------------------")
                 Misioneros_Canibales_tiempo(sys.argv[i])
         else:

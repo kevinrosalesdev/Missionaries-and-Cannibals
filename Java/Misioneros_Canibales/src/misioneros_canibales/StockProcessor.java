@@ -57,12 +57,7 @@ public class StockProcessor {
                 System.out.println("El número de canibales no puede superar al de misioneros");
                 continue;
             }
-            
-            if (numero_misioneros(orillaA)==10 && numero_canibales(orillaA)==8 ){
-                System.out.println("Esa combinación no se puede dar");
-                continue;
-            }
-            
+
             if (orillaA.size()%3!=0){
                 System.out.println("NO ES MULTIPLO DE 3");
                 continue;
@@ -128,23 +123,22 @@ public class StockProcessor {
             
             if (numero_canibales(orillaA) > numero_misioneros(orillaA)){
                 System.out.println("El número de canibales no puede superar al de misioneros");
+                System.out.println(numero_misioneros(orillaA));
+                System.out.println(numero_canibales(orillaA));
                 continue;
             }
-            
-            if (numero_misioneros(orillaA)==10 && numero_canibales(orillaA)==8 ){
-                System.out.println("Esa combinación no se puede dar");
-                continue;
-            }
-            
             if (orillaA.size()%3!=0){
                 System.out.println("NO ES MULTIPLO DE 3");
+                System.out.println(numero_misioneros(orillaA));
+                System.out.println(numero_canibales(orillaB));
                 continue;
             }
             System.out.println("El número de misoneros: " + numero_misioneros(orillaA));
             System.out.println("El número de canibles: " + numero_canibales(orillaA));
             Iterator p= orillaA.iterator();
-            
+            boolean flag= true;
             while(p.hasNext()){
+                int sizeFlag=orillaA.size();
                 System.out.println("ORILLA_A -->"+orillaA.size());
                 System.out.println("ORILLA_B -->"+orillaB.size());
                 
@@ -174,15 +168,24 @@ public class StockProcessor {
                         break;
                         
                     }
-                
+                    
+                    //System.out.println(t);
                 }
+                if (orillaA.size()==sizeFlag){
+                        System.out.println("Combinación imposible");
+                        flag=false;
+                        break;
+                    }
                 
             }
-            long tiempoIter= System.nanoTime()-tiempoInicio;
-            System.out.println("Resultado de la orilla A: "+ orillaA);
-            System.out.println("Resultado de la orilla B: "+ orillaB);
-            System.out.println("Tiempo en milisegundos: "+tiempoIter/1e6);
-            tiempos.add(tiempoIter);
+            if (flag){
+                long tiempoIter= System.nanoTime()-tiempoInicio;
+                System.out.println("Resultado de la orilla A: "+ orillaA);
+                System.out.println("Resultado de la orilla B: "+ orillaB);
+                System.out.println("Tiempo en milisegundos: "+tiempoIter/1e6);
+                tiempos.add(tiempoIter);
+            }
+            
         }
         long tiempoFinal=0;
         Iterator tiempoIt= tiempos.iterator();

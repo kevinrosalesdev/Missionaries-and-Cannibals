@@ -5,12 +5,7 @@
  */
 package misioneros_canibales;
 
-import Reader.FileTextReader;
-import combinationsGenerator.IteradorCombinacion;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+
 
 /**
  *
@@ -23,9 +18,18 @@ public class Misioneros_Canibales {
      */
     public static void main(String[] args) {
         StockProcessor prueba= new StockProcessor();
-        prueba.misioneros_Canibales("fichero_básico.txt");
-        prueba.misioneros_CanibalesT("fichero_básico.txt");
-        prueba.misioneros_CanibalesT("fichero_avanzado.txt");
+        prueba.misioneros_CanibalesT("C:\\Users\\Héctor\\Desktop\\CaM-PR3\\Java\\Misioneros_Canibales\\fichero_básico.txt");
+        //prueba.misioneros_Canibales("fichero10_1.txt");
+        //prueba.misioneros_Canibales("fichero20_2.txt");
+        //prueba.misioneros_CanibalesT("fichero50_5.txt");
+        //prueba.misioneros_CanibalesT("fichero100_10.txt");
+        //prueba.misioneros_CanibalesT("fichero200_20.txt");
+        //prueba.misioneros_CanibalesT("fichero500_50.txt");
+        //prueba.misioneros_CanibalesT("fichero1000_100.txt");
+        
+        //prueba.misioneros_CanibalesT("fichero_básico.txt");
+        //prueba.misioneros_CanibalesT("fichero_avanzado.txt");
+        
         
     }
     

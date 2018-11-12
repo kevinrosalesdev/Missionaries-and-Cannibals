@@ -3,6 +3,9 @@ if(! is.element("arrangements", installed.packages()[,1])){
 }
 library("arrangements")
 
+#Librería que se iba a utilizar para coger ruta relativa a través de CMD. 
+#(No funciona si se ejecuta fuera de éste)
+
 #if(! is.element("rstudioapi", installed.packages()[,1])){
 #  install.packages("rstudioapi")
 #}
@@ -44,7 +47,7 @@ print("#########################################################################
 print("INICIO DE LOS TESTS")
 print("############################################################################")
 archivo=0
-orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+orillaA = read.table("fichero500_50.txt", skip=archivo, nrow=1)
 orillaA = as.numeric(orillaA)
 while(orillaA[1] != -1){
   print("==========================================================================")
@@ -56,9 +59,8 @@ while(orillaA[1] != -1){
     print("ERROR: El número de personas no es múltiplo de 3.")
   }else if(Numero_Canibales(orillaA) > Numero_Misioneros(orillaA)){
     print("ERROR: Hay más caníbales que misioneros.")
-  }else if(Numero_Misioneros(orillaA) == 10 && Numero_Canibales(orillaA) == 8){
-    print("ERROR: Esa combinación no se puede llevar a cabo.")
   }else{
+    flag = 1;
     tiempoInicio <- proc.time()
     while (length(orillaA) != 0) {
       print(paste("Numero de Misioneros: ", Numero_Misioneros(orillaA)))
@@ -69,6 +71,7 @@ while(orillaA[1] != -1){
       print(orillaB)
       iter = icombinations(orillaA,3)
       lista = iter$getnext()
+      sizeFlag = length(orillaA);
       while (length(lista) != 0){
         auxA <- orillaA
         auxB <- orillaB
@@ -91,16 +94,25 @@ while(orillaA[1] != -1){
         }
         lista = iter$getnext()
       }
+      if(length(orillaA) == sizeFlag){
+        print("############################################################################")
+        print("Combinación Imposible de Resolver")
+        print("############################################################################")
+        flag = 0
+        break
+      }
       print("############################################################################")
     }
-    print("Medida de tiempos: ")
-    print(proc.time() - tiempoInicio)
-    print("El resultado final de la Orilla A es:")
-    print(orillaA)
-    print("El resultado final de la Orilla B es:")
-    print(orillaB)
+    if (flag == 1){ 
+      print("Medida de tiempos: ")
+      print(proc.time() - tiempoInicio)
+      print("El resultado final de la Orilla A es:")
+      print(orillaA)
+      print("El resultado final de la Orilla B es:")
+      print(orillaB)
+    }
   }
-  orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+  orillaA = read.table("fichero500_50.txt", skip=archivo, nrow=1)
   orillaA = as.numeric(orillaA)
 }
 print("############################################################################")

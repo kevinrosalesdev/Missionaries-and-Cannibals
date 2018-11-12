@@ -3,6 +3,9 @@ if(! is.element("arrangements", installed.packages()[,1])){
 }
 library("arrangements")
 
+#Librería que se iba a utilizar para coger ruta relativa a través de CMD. 
+#(No funciona si se ejecuta fuera de éste)
+
 #if(! is.element("rstudioapi", installed.packages()[,1])){
 #  install.packages("rstudioapi")
 #}
@@ -44,7 +47,7 @@ print("#########################################################################
 print("INICIO DE LOS TESTS")
 print("############################################################################")
 archivo=0
-orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+orillaA = read.table("fichero10_1.txt", skip=archivo, nrow=1)
 orillaA = as.numeric(orillaA)
 vectorTiempo <- c()
 while(orillaA[1] != -1){
@@ -60,10 +63,12 @@ while(orillaA[1] != -1){
   }else if(Numero_Misioneros(orillaA) == 10 && Numero_Canibales(orillaA) == 8){
     print("ERROR: Esa combinación no se puede llevar a cabo.")
   }else{
+    flag = 1;
     tiempoInicio <- proc.time()
     while (length(orillaA) != 0) {
       iter = icombinations(orillaA,3)
       lista = iter$getnext()
+      sizeFlag = length(orillaA);
       while (length(lista) != 0){
         auxA <- orillaA
         auxB <- orillaB
@@ -84,12 +89,26 @@ while(orillaA[1] != -1){
         }
         lista = iter$getnext()
       }
+      if(length(orillaA) == sizeFlag){
+        print("############################################################################")
+        print("Combinación Imposible de Resolver")
+        print("############################################################################")
+        flag = 0
+        break
+      }
     }
-    tiempo = proc.time() - tiempoInicio
-    print(tiempo)
-    vectorTiempo = append(vectorTiempo, as.vector(tiempo[1]))
+    if (flag == 1){
+      tiempo = proc.time() - tiempoInicio
+      print("Medida de tiempos: ")
+      print(tiempo)
+      print("El resultado final de la Orilla A es:")
+      print(orillaA)
+      print("El resultado final de la Orilla B es:")
+      print(orillaB)
+      vectorTiempo = append(vectorTiempo, as.vector(tiempo[1]))
+    }
   }
-  orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+  orillaA = read.table("fichero10_1.txt", skip=archivo, nrow=1)
   orillaA = as.numeric(orillaA)
 }
 i = 0
@@ -97,7 +116,9 @@ tiempoFinal = 0
 for (i in 1:length(vectorTiempo)){
   tiempoFinal = tiempoFinal + vectorTiempo[i]
 }
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print(paste("Suma del Tiempo Total del Algoritmo con las Combinaciones entrantes: ", tiempoFinal))
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print("############################################################################")
 print("FINAL DE LOS TESTS")
 print("############################################################################")

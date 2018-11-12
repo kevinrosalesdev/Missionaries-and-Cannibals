@@ -47,9 +47,8 @@ print("#########################################################################
 print("INICIO DE LOS TESTS")
 print("############################################################################")
 archivo=0
-orillaA = read.table("fichero_avanzado.txt", skip=archivo, nrow=1)
+orillaA = read.table("fichero50_5.txt", skip=archivo, nrow=1)
 orillaA = as.numeric(orillaA)
-vectorTiempo <- c()
 while(orillaA[1] != -1){
   print("==========================================================================")
   orillaB = c()
@@ -60,12 +59,16 @@ while(orillaA[1] != -1){
     print("ERROR: El número de personas no es múltiplo de 3.")
   }else if(Numero_Canibales(orillaA) > Numero_Misioneros(orillaA)){
     print("ERROR: Hay más caníbales que misioneros.")
-  }else if(Numero_Misioneros(orillaA) == 10 && Numero_Canibales(orillaA) == 8){
-    print("ERROR: Esa combinación no se puede llevar a cabo.")
   }else{
     flag = 1;
     tiempoInicio <- proc.time()
     while (length(orillaA) != 0) {
+      print(paste("Numero de Misioneros: ", Numero_Misioneros(orillaA)))
+      print(paste("Numero de Caníbales: ", Numero_Canibales(orillaA)))
+      print("ORILLA A -->")
+      print(orillaA)
+      print("ORILLA B -->")
+      print(orillaB)
       iter = icombinations(orillaA,3)
       lista = iter$getnext()
       sizeFlag = length(orillaA);
@@ -79,6 +82,8 @@ while(orillaA[1] != -1){
         if((Numero_Misioneros(lista) > Numero_Canibales(lista) || Numero_Misioneros(lista) == 0) &&
            Numero_Misioneros(auxA) != 1 && (Numero_Canibales(auxA) <= Numero_Misioneros(auxA) || Numero_Misioneros(auxA) == 0) &&
            Numero_Canibales(auxB) <= Numero_Misioneros(auxB)){
+          print("La combinación ganadora es: ")
+          print(lista)
           for (j in 1:length(lista)){
             orillaA = orillaA[-match(lista[j],orillaA)]
             orillaB = append(orillaB,lista[j])
@@ -96,29 +101,20 @@ while(orillaA[1] != -1){
         flag = 0
         break
       }
+      print("############################################################################")
     }
-    if (flag == 1){
-      tiempo = proc.time() - tiempoInicio
+    if (flag == 1){ 
       print("Medida de tiempos: ")
-      print(tiempo)
+      print(proc.time() - tiempoInicio)
       print("El resultado final de la Orilla A es:")
       print(orillaA)
       print("El resultado final de la Orilla B es:")
       print(orillaB)
-      vectorTiempo = append(vectorTiempo, as.vector(tiempo[1]))
     }
   }
-  orillaA = read.table("fichero_avanzado.txt", skip=archivo, nrow=1)
+  orillaA = read.table("fichero50_5.txt", skip=archivo, nrow=1)
   orillaA = as.numeric(orillaA)
 }
-i = 0
-tiempoFinal = 0
-for (i in 1:length(vectorTiempo)){
-  tiempoFinal = tiempoFinal + vectorTiempo[i]
-}
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print(paste("Suma del Tiempo Total del Algoritmo con las Combinaciones entrantes: ", tiempoFinal))
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print("############################################################################")
 print("FINAL DE LOS TESTS")
 print("############################################################################")

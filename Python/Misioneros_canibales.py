@@ -26,9 +26,9 @@ def numero_canibales(lista):
 
 
 def Misioneros_Canibales(fichero):
-    iteraciones = 0;
+    iteraciones = 0
     for linea in open(fichero, "r"):
-        iteraciones = iteraciones + 1;
+        iteraciones = iteraciones + 1
         print("################ " +
               str(iteraciones) +
               " iteracion ##############")
@@ -39,15 +39,13 @@ def Misioneros_Canibales(fichero):
         if numero_canibales(orillaA) > numero_misioneros(orillaA):
             print("El número de canibales no pude superar al e misioneros")
             continue
-        if numero_misioneros(orillaA) == 10 and numero_canibales(orillaA) == 8:
-            print("Esa combinación no se puede dar")
-            continue
         if len(orillaA) % 3 != 0:
-            print("NO ES MUTIPLO DE TRES")
+            print("NO ES MULTIPLO DE TRES")
             continue
         print("El número de misioneros: " + str(numero_misioneros(orillaA)))
         print("El número de canibales: " + str(numero_canibales(orillaA)))
         while orillaA != []:
+            sizeFlag=len(orillaA)
             print("ORILLA_A -->" + str(orillaA))
             print("ORILLA_B -->" + str(orillaB))
             for elemento in itertools.combinations(orillaA, 3):
@@ -66,20 +64,23 @@ def Misioneros_Canibales(fichero):
                         and numero_misioneros(aux) != 1
                         and (numero_canibales(aux) <= numero_misioneros(aux) or numero_misioneros(aux) == 0)
                         and (numero_canibales(auxB) <= numero_misioneros(auxB))):
-                    print("Combinaciones ganadora:" + str(it))
+                    print("Combinación ganadora:" + str(it))
                     # simulación del bote
                     for i in it:
                         orillaA.remove(i)
                         orillaB.append(i)
-                    break;
+                    break
+            if len(orillaA) == sizeFlag:
+                print("Combinación imposible")
+                break
         print("Resultado de la orilla A:" + str(orillaA))
         print("Resultado de la orilla B:" + str(orillaB))
 
 
 def Misioneros_Canibales_tiempo(fichero):
-    iteraciones = 0;
+    iteraciones = 0
     for linea in open(fichero, "r"):
-        iteraciones = iteraciones + 1;
+        iteraciones = iteraciones + 1
         print("################ " +
               str(iteraciones) +
               " iteracion ##############")
@@ -90,14 +91,13 @@ def Misioneros_Canibales_tiempo(fichero):
         if numero_canibales(orillaA) > numero_misioneros(orillaA):
             print("El número de canibales no pude superar al e misioneros")
             continue
-        if numero_misioneros(orillaA) == 10 and numero_canibales(orillaA) == 8:
-            print("Esa combinación no se puede dar")
-            continue
         if len(orillaA) % 3 != 0:
             print("NO ES MUTIPLO DE TRES")
             continue
+        flag = True
         start_time = time.perf_counter()
         while orillaA != []:
+            sizeFlag=len(orillaA)
             for elemento in itertools.combinations(orillaA, 3):
                 # casteo de tupla a lista
                 it = list(elemento)
@@ -117,10 +117,15 @@ def Misioneros_Canibales_tiempo(fichero):
                     for i in it:
                         orillaA.remove(i)
                         orillaB.append(i)
-                    break;
-        elapsed_time = time.perf_counter() - start_time
-        print(elapsed_time)
-        vectortiempo.append(elapsed_time);
+                    break
+            if len(orillaA) == sizeFlag:
+                print("Combinación imposible")
+                flag=False
+                break
+        if flag:
+            elapsed_time = time.perf_counter() - start_time
+            print(elapsed_time)
+            vectortiempo.append(elapsed_time)
     sum = 0
     for i in vectortiempo:
         sum += sum + i

@@ -60,8 +60,6 @@ while(orillaA[1] != -1){
     print("ERROR: El número de personas no es múltiplo de 3.")
   }else if(Numero_Canibales(orillaA) > Numero_Misioneros(orillaA)){
     print("ERROR: Hay más caníbales que misioneros.")
-  }else if(Numero_Misioneros(orillaA) == 10 && Numero_Canibales(orillaA) == 8){
-    print("ERROR: Esa combinación no se puede llevar a cabo.")
   }else{
     flag = 1;
     tiempoInicio <- proc.time()

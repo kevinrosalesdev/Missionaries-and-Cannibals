@@ -17,6 +17,13 @@ import java.util.List;
  * @author Hector
  */
 public class FileTextReader {
+    
+    /**
+     * Lee de un archivo de fichero y devuelve una lista con cada una de las
+     * líneas del fichero pasado por parámetro
+     * @param fileName Fichero para leer líneas
+     * @return lista de líneas en un fichero 
+     */
     public static List<String> read(String fileName){
         List <String> vec = new LinkedList();
         File file= new File (fileName);
@@ -33,8 +40,12 @@ public class FileTextReader {
         }
         return vec;
     }
-    
-    public static List <String> toInt(String vec){
+    /**
+     * Crea una lista con palabras separadas por espacios de una string
+     * @param vec String que contiene las palabras
+     * @return Lista con los nombres de la ristra pasada
+     */
+    public static List <String> toList(String vec){
         String [] aux= vec.split(" ");
         List <String> result = new LinkedList();
         for (String aux1 : aux) {

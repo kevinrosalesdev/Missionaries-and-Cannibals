@@ -17,7 +17,11 @@ public class IteradorCombinacion implements Iterable<List<String>> {
  
     private final List<String> list;
     private final int size;
- 
+       /**
+        * Constructor de IteradorCombinacion
+        * @param list Lista con los datos para combinar
+        * @param size Tamaño de la combinación
+        */
     public IteradorCombinacion(List<String> list,Integer size) {
         this.list = list;
         this.size = size;
@@ -27,7 +31,10 @@ public class IteradorCombinacion implements Iterable<List<String>> {
     public Iterator<List<String>> iterator() {
         return new IteradorCombn(list, size);
     }
- 
+    
+    /**
+     * Clase con la que creamos el iterador de combinaciones
+     */
     private class IteradorCombn implements Iterator<List<String>> {
  
         private  int actualSize;
@@ -37,7 +44,12 @@ public class IteradorCombinacion implements Iterable<List<String>> {
         private int[] indices;
         private final String[] arrayList;
         private List<String> elem = null;
- 
+        
+        /**
+         * Constructor del iterador de combinaciones
+         * @param s Lista en la cual estan los elementos para combinar
+         * @param k Tamaño de la combinación
+         */
         public IteradorCombn(List<String> s, Integer k) {
             actualSize = k;// desde dónde
             curIndex = 0;
@@ -49,7 +61,7 @@ public class IteradorCombinacion implements Iterable<List<String>> {
             this.result = new String[actualSize < s.size() ? actualSize : s.size()];
             //el tamaño de result va a ser el valor menor entre actualSize y el tamaño de s
             indices = new int[result.length];
- 
+            //Se guardan los indices en orden inverso
             for (int i = 0; i < result.length; i++) {
                 indices[i] = result.length - 2 - i;
             }

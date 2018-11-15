@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package misioneros_canibales;
 
 import java.util.Iterator;
@@ -18,7 +14,9 @@ import java.util.List;
 public class Misioneros_Canibales {
 
     /**
-     * @param args the command line arguments
+     * Main en el que se invocan las llamadas al algoritmo de fuerza
+     * bruta con los archivos especificados por parámetros
+     * @param args Argumentos que se pasan al ejecutable
      */
     public static void main(String[] args) {
         List <String> argumentos= new LinkedList();

@@ -89,7 +89,7 @@ def Misioneros_Canibales_tiempo(fichero):
             orillaA.append(int(palabra))
         orillaB = []
         if numero_canibales(orillaA) > numero_misioneros(orillaA):
-            print("El número de canibales no pude superar al e misioneros")
+            print("El número de canibales no pude superar al de misioneros")
             continue
         if len(orillaA) % 3 != 0:
             print("NO ES MUTIPLO DE TRES")
@@ -128,7 +128,7 @@ def Misioneros_Canibales_tiempo(fichero):
             vectortiempo.append(elapsed_time)
     sum = 0
     for i in vectortiempo:
-        sum += sum + i
+        sum = sum + i
     print("Suma del tiempo total del algoritmo con las combinaciones entrantes: " + str(sum))
     vectortiempo.clear()
 

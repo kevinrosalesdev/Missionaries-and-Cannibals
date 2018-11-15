@@ -47,7 +47,7 @@ print("#########################################################################
 print("INICIO DE LOS TESTS")
 print("############################################################################")
 archivo=0
-orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+orillaA = read.table("fichero_avanzado.txt", skip=archivo, nrow=1)
 orillaA = as.numeric(orillaA)
 while(orillaA[1] != -1){
   print("==========================================================================")
@@ -61,7 +61,6 @@ while(orillaA[1] != -1){
     print("ERROR: Hay más caníbales que misioneros.")
   }else{
     flag = 1;
-    tiempoInicio <- proc.time()
     while (length(orillaA) != 0) {
       print(paste("Numero de Misioneros: ", Numero_Misioneros(orillaA)))
       print(paste("Numero de Caníbales: ", Numero_Canibales(orillaA)))
@@ -104,15 +103,13 @@ while(orillaA[1] != -1){
       print("############################################################################")
     }
     if (flag == 1){ 
-      print("Medida de tiempos: ")
-      print(proc.time() - tiempoInicio)
       print("El resultado final de la Orilla A es:")
       print(orillaA)
       print("El resultado final de la Orilla B es:")
       print(orillaB)
     }
   }
-  orillaA = read.table("fichero_básico.txt", skip=archivo, nrow=1)
+  orillaA = read.table("fichero_avanzado.txt", skip=archivo, nrow=1)
   orillaA = as.numeric(orillaA)
 }
 print("############################################################################")

@@ -46,7 +46,7 @@ public class StockProcessor {
         int iteraciones=0;
         List <Long> tiempos= new LinkedList();
         while(b.hasNext()){
-            long tiempoInicio= System.nanoTime();
+            
             System.out.println("############################==" + 
                     iteraciones + "==#############################");
             System.out.println("Iteración: "+ iteraciones);
@@ -74,6 +74,7 @@ public class StockProcessor {
 
             Iterator p= orillaA.iterator();
             boolean flag= true;
+            long tiempoInicio= System.nanoTime();
             while(p.hasNext()){
                 int sizeFlag=orillaA.size();
                 if(!timeFlag){

@@ -36,7 +36,7 @@ public class StockProcessor {
     }
     /**
      * Clona una lista en una lista nueva
-     * @param lista ÑLista a copiar
+     * @param lista Lista a copiar
      * @return Copia de lista
      */
     private List<String> clone(List<String> lista){

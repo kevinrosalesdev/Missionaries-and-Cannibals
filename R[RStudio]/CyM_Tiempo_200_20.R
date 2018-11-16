@@ -97,12 +97,8 @@ while(orillaA[1] != -1){
     }
     if (flag == 1){
       tiempo = proc.time() - tiempoInicio
-      print("Medida de tiempos: ")
+      print("Medida de tiempos en segundos: ")
       print(tiempo)
-      print("El resultado final de la Orilla A es:")
-      print(orillaA)
-      print("El resultado final de la Orilla B es:")
-      print(orillaB)
       vectorTiempo = append(vectorTiempo, as.vector(tiempo[1]))
     }
   }
@@ -115,7 +111,7 @@ for (i in 1:length(vectorTiempo)){
   tiempoFinal = tiempoFinal + vectorTiempo[i]
 }
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print(paste("Suma del Tiempo Total del Algoritmo con las Combinaciones entrantes: ", tiempoFinal))
+print(paste("Suma del Tiempo Total en segundos del Algoritmo con las Combinaciones entrantes: ", tiempoFinal))
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print("############################################################################")
 print("FINAL DE LOS TESTS")

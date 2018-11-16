@@ -1,24 +1,5 @@
 # Cannibals and Missionaries Algorithm implemented in three Languages: R [RStudio], Python and Java!
-### This brute-force Algorithm includes its Analysis.
-
-### NOTAS CONCRETAS DE LOS TRES LENGUAJES 
-    Por si quieren aclarar algo del funcionamiento de alguno)
-
-#### R
-    -Se pueden ejecutar Scripts mediante cualquier consola. El problema es que a la hora
-    de instalar paquetes puede dar problemas o colgarse R y no volver a funcionar. De momento
-    hasta preguntar he dejado ambos Scripts separados (Ambos 100% operativos)
-    -La ruta relativa sí que la he podido coger para que no dependa del ordenador en el que
-    se está ejecutando.
-    -El proyecto además está limpio en ambos Scripts.
-
-#### PYTHON
-
-#### JAVA
-
-### Informe
-
-El informe se encuentra en Google Docs. Ya tienen su invitación para editarlo.
+### This brute-force Algorithm can show its time too!
 
 ### Historia de Caníbales y Misioneros Original
 
@@ -28,7 +9,7 @@ El algoritmo original consiste en una barca que debe cruzar un río. Dicha barca
 
 Dándole una pequeña vuelta de hoja y en honor a la asignatura *Fundamentos de los Sistemas Operativos* y su concurrencia, se ha optado por realizar el problema de una manera distinta:
 
-Consiste en realizar viajes con una barca **siempre llena** para llevar a los caníbales y a los misioneros de un extremo a otro del río. En nuestro problema, **en ninguna de ambas orillas pueden haber nunca más caníbales que misioneros** y ademas hay otro problema que se origina en la propia barca, dado a que esta **NO PUEDE LLEVAR MÁS CANÍBALES QUE MISIONEROS**.
+Consiste en realizar viajes con una barca **siempre llena** para llevar a los caníbales y a los misioneros de un extremo a otro del río. En nuestro problema, **en ninguna de ambas orillas pueden haber nunca más caníbales que misioneros** y ademas hay otro problema que se origina en la propia barca, dado a que esta **no puede llevar más caníbales que misioneros**.
 
 Así pues, se han de realizar *X viajes* con una barca siempre llena para llevar a *Y misioneros* y *Z caníbales* al otro extremo.
 
@@ -60,20 +41,11 @@ Así pues, se han de realizar *X viajes* con una barca siempre llena para llevar
         1 = Misionero
         2 = Caníbal
 
-### Fechas de Entrega
-    -El trabajo tiene como fecha de entrega el 16/11, lo que nos da dos clases prácticas 
-    de dos horas de PR3. Por ello, se asignan las siguientes fechas (Antes de las fechas el trabajo
-    debería estar hecho):
-    8/11: Algoritmo completamente operativo en Python (Últimos retoques en clase).
-    12/11: Algoritmo completamente operativo en RStudio y Java.
-    15/11: Informe completado e intento de Greedy en los tres lenguajes (Últimos retoques en clase).
-
 ### Salida [Mirar Código en Python o R]
     -OPCIÓN MONSTRAR TODO(sin nada)
     Primero la OrillaA
     Por cada combinación: la combinación satisfactoria
                           el número de canibales y misioneros en la orillaA
     OrillaB
-    -Tiempo total
     -OPCIÓN MONSTAR SOLO TIEMPO(-t)
-    -Tiempo total
+    Tiempo total

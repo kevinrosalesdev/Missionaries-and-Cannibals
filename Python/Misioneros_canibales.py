@@ -28,22 +28,22 @@ def numero_canibales(lista):
 def Misioneros_Canibales(fichero):
     iteraciones = 0
     for linea in open(fichero, "r"):
-        iteraciones = iteraciones + 1
         print("################ " +
               str(iteraciones) +
-              " iteracion ##############")
+              " iteración ################")
+        iteraciones = iteraciones + 1
         orillaA = []
         for palabra in linea.split():
             orillaA.append(int(palabra))
         orillaB = []
         if numero_canibales(orillaA) > numero_misioneros(orillaA):
-            print("El número de canibales no pude superar al e misioneros")
+            print("El número de caníbales no puede superar al de misioneros")
             continue
         if len(orillaA) % 3 != 0:
-            print("NO ES MULTIPLO DE TRES")
+            print("NO ES MÚLTIPLO DE TRES")
             continue
         print("El número de misioneros: " + str(numero_misioneros(orillaA)))
-        print("El número de canibales: " + str(numero_canibales(orillaA)))
+        print("El número de caníbales: " + str(numero_canibales(orillaA)))
         while orillaA != []:
             sizeFlag=len(orillaA)
             print("ORILLA_A -->" + str(orillaA))
@@ -80,19 +80,19 @@ def Misioneros_Canibales(fichero):
 def Misioneros_Canibales_tiempo(fichero):
     iteraciones = 0
     for linea in open(fichero, "r"):
-        iteraciones = iteraciones + 1
         print("################ " +
               str(iteraciones) +
-              " iteracion ##############")
+              " iteración ################")
+        iteraciones = iteraciones + 1
         orillaA = []
         for palabra in linea.split():
             orillaA.append(int(palabra))
         orillaB = []
         if numero_canibales(orillaA) > numero_misioneros(orillaA):
-            print("El número de canibales no pude superar al de misioneros")
+            print("El número de caníbales no puede superar al de misioneros")
             continue
         if len(orillaA) % 3 != 0:
-            print("NO ES MUTIPLO DE TRES")
+            print("NO ES MULTIPLO DE TRES")
             continue
         flag = True
         start_time = time.perf_counter()
@@ -124,12 +124,12 @@ def Misioneros_Canibales_tiempo(fichero):
                 break
         if flag:
             elapsed_time = time.perf_counter() - start_time
-            print(elapsed_time)
+            print(elapsed_time, "s")
             vectortiempo.append(elapsed_time)
     sum = 0
     for i in vectortiempo:
         sum = sum + i
-    print("Suma del tiempo total del algoritmo con las combinaciones entrantes: " + str(sum))
+    print("Suma del tiempo total del algoritmo con las combinaciones entrantes: " + str(sum), "s")
     vectortiempo.clear()
 
 
@@ -139,13 +139,13 @@ if __name__ == '__main__':
             for i in range(2, len(sys.argv)):
                 print("------------------------------------------------------- "
                       + str(i - 1) +
-                      "Fichero -------------------------------------------------------------------------------------------")
+                      " Fichero -------------------------------------------------------------------------------------------")
                 Misioneros_Canibales_tiempo(sys.argv[i])
         else:
             for i in range(1, len(sys.argv)):
                 print("------------------------------------------------------- "
                       + str(i) +
-                      "Fichero -------------------------------------------------------------------------------------------")
+                      " Fichero -------------------------------------------------------------------------------------------")
                 Misioneros_Canibales(sys.argv[i])
     else:
         print("FALLO EN EL ARGUMENTO")

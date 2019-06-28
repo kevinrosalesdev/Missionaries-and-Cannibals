@@ -99,18 +99,18 @@ Go to /Missionaries-and-Cannibals/Java-Backtracking/Misioneros_Canibales/dist/ a
 - If you are **not executing '-t'** option, output will be something like:
 
 ```bash
-################ 0 iteración ################ 	<= Case 1
-El número de misioneros: 4				      	<= Number of Missionaries
-El número de caníbales: 2						<= Number of Cannibals
-ORILLA_A -->[1, 1, 1, 1, 2, 2]					<= Riverbank A
-ORILLA_B -->[]								    <= Riverbank B
-Combinación ganadora:[1, 1, 2]					<= Selected Combination
-ORILLA_A -->[1, 1, 2]							<= Riverbank A
-ORILLA_B -->[1, 1, 2]							<= Riverbank B
-Combinación ganadora:[1, 1, 2]					<= Selected Combination
-Resultado de la orilla A:[]						<= Final Riverbank A (Empty) 
-Resultado de la orilla B:[1, 1, 2, 1, 1, 2]		<= Final Riverbank B
-################ 1 iteración ################	<= Case 2
+################ 0 iteración ################   <= Case 1
+El número de misioneros: 4        <= Number of Missionaries
+El número de caníbales: 2         <= Number of Cannibals
+ORILLA_A -->[1, 1, 1, 1, 2, 2]    <= Riverbank A
+ORILLA_B -->[]                    <= Riverbank B
+Combinación ganadora:[1, 1, 2]    <= Selected Combination
+ORILLA_A -->[1, 1, 2]             <= Riverbank A
+ORILLA_B -->[1, 1, 2]             <= Riverbank B
+Combinación ganadora:[1, 1, 2]    <= Selected Combination
+Resultado de la orilla A:[]       <= Final Riverbank A (Empty) 
+Resultado de la orilla B:[1, 1, 2, 1, 1, 2]   <= Final Riverbank B
+################ 1 iteración ################ <= Case 2
 El número de misioneros: 5
 El número de caníbales: 4
 ORILLA_A -->[2, 2, 2, 1, 1, 1, 2, 1, 1]
@@ -133,12 +133,12 @@ El número de caníbales no puede superar al de misioneros <= Input number of Ca
 - If you **are executing '-t'** option, output will be something like:
 
 ```bash
-############################==0==############################# 	<= Case 1
+############################==0==#############################  <= Case 1
 Iteración: 0
-El número de misioneros: 4450							<= Number of Missionaries
-El número de caníbales: 3560							<= Number of Cannibals		
-Tiempo en milisegundos: 1098.457547						<= Case Time (ms)
-##########################==FINAL==###########################	<= Summary
-Tiempo final en segundos:1.098457547					<= Total Time (s)
+El número de misioneros: 4450             <= Number of Missionaries
+El número de caníbales: 3560              <= Number of Cannibals		
+Tiempo en milisegundos: 1098.457547       <= Case Time (ms)
+##########################==FINAL==###########################  <= Summary
+Tiempo final en segundos:1.098457547      <= Total Time (s)
 ##########################=========###########################
 ```
